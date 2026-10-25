@@ -67,6 +67,7 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
 
 .note { color: var(--muted); font-size: 14px; }
 .me { font-weight: 700; }
+.ext svg { width: 0.95em; height: 0.95em; vertical-align: -0.12em; }
 .pubs { padding-left: 22px; margin: 0; }
 .pubs li { margin-bottom: 10px; font-size: 15px; }
 
