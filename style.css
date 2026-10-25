@@ -69,7 +69,10 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
 .me { font-weight: 700; }
 .ext svg { width: 0.95em; height: 0.95em; vertical-align: -0.12em; }
 .pubs { list-style: none; padding-left: 0; margin: 0; }
-.pubs li { margin-bottom: 10px; font-size: 15px; }
+.pubs li { margin-bottom: 14px; font-size: 15px; line-height: 1.5; }
+.pubs .au, .pubs .ti, .pubs .jo { display: block; }
+.pubs .ti { font-weight: 500; }
+.pubs .au, .pubs .jo { color: var(--muted); font-size: 14px; }
 
 .timeline { list-style: none; padding: 0; margin: 0; }
 .timeline li { display: grid; grid-template-columns: 130px 1fr; gap: 16px; margin-bottom: 10px; }
