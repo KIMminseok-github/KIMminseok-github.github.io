@@ -85,3 +85,5 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
   .timeline li { grid-template-columns: 1fr; gap: 0; }
   .nav .brand { display: none; }
 }
+
+h1, h3, strong, b, .me, .brand { color: var(--heading); }
