@@ -59,6 +59,7 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .cards article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
 .cards h3 { margin: 0 0 6px; }
+.card-icon { display: block; width: 64px; height: 64px; color: var(--heading); margin-bottom: 12px; }
 .cards p { margin: 0; color: var(--muted); font-size: 15px; }
 
 .entries { padding-left: 20px; margin: 0; }
