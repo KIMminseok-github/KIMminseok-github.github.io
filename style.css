@@ -104,7 +104,7 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
 .guide-bubble b { font-size: 14px; font-weight: 600; }
 .guide:hover .guide-bubble { border-color: var(--heading); }
 .guide-sat { width: 72px; height: 76px; overflow: visible; }
-.guide-sat line, .guide-sat .grid, .guide-sat .mouth { stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; }
+.guide-sat line, .guide-sat .grid, .guide-sat .mouth, .guide-sat .eyes-happy { stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; }
 .guide-sat .panel { fill: var(--surface); fill: color-mix(in srgb, var(--accent) 22%, var(--surface)); stroke: currentColor; stroke-width: 2; }
 .guide-sat .grid { stroke-width: 1; opacity: 0.6; }
 .guide-sat .hull { fill: var(--surface); stroke: currentColor; stroke-width: 2.2; }
@@ -118,6 +118,9 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
 }
 .guide.up .guide-arrow { transform: rotate(180deg); animation-name: point-up; }
 .guide.up .guide-body { animation-name: wave; }
+.guide-sat .eyes-happy { display: none; stroke-linejoin: round; }
+.guide.up .eyes { display: none; }
+.guide.up .eyes-happy { display: inline; }
 
 @keyframes bob { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-4px) rotate(3deg); } }
 @keyframes wave { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } }
@@ -130,7 +133,10 @@ h3 { font-size: 17px; margin: 24px 0 8px; }
 }
 @media (max-width: 680px) {
   .guide { right: 12px; bottom: 12px; }
-  .guide-bubble { display: none; }
+  .guide { gap: 4px; }
+  .guide-bubble { padding: 4px 10px; margin-bottom: 20px; }
+  .guide-bubble small { font-size: 11px; }
+  .guide-bubble b { font-size: 13px; }
   .guide-sat { width: 56px; height: 60px; }
 }
 
