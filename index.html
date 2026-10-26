@@ -229,5 +229,48 @@
   <footer class="wrap footer">
     <p>© 2026 Minseok Kim</p>
   </footer>
+  <button class="guide" type="button" aria-label="Scroll to the next section">
+    <span class="guide-bubble"><small>Next up</small><b class="guide-label">Experience</b></span>
+    <svg class="guide-sat" viewBox="0 0 80 84" aria-hidden="true">
+      <g class="guide-body">
+        <line x1="20" y1="36" x2="26" y2="36"/><line x1="54" y1="36" x2="60" y2="36"/>
+        <rect class="panel" x="2" y="29" width="18" height="14" rx="2"/><path class="grid" d="M8 29v14M14 29v14M2 36h18"/>
+        <rect class="panel" x="60" y="29" width="18" height="14" rx="2"/><path class="grid" d="M66 29v14M72 29v14M60 36h18"/>
+        <line x1="40" y1="22" x2="40" y2="13"/><circle class="beacon" cx="40" cy="11" r="3"/>
+        <rect class="hull" x="26" y="22" width="28" height="28" rx="9"/>
+        <g class="eyes"><ellipse cx="34" cy="34" rx="2" ry="2.6"/><ellipse cx="46" cy="34" rx="2" ry="2.6"/></g>
+        <circle class="blush" cx="30.5" cy="40" r="2.2"/><circle class="blush" cx="49.5" cy="40" r="2.2"/>
+        <path class="mouth" d="M37 41q3 3 6 0"/>
+      </g>
+      <path class="guide-arrow" d="M32 62l8 8 8-8M32 70l8 8 8-8"/>
+    </svg>
+  </button>
+
+  <script>
+    (() => {
+      const guide = document.querySelector('.guide');
+      const label = guide.querySelector('.guide-label');
+      const sections = [...document.querySelectorAll('main section[id]')];
+      let target = null;
+      const update = () => {
+        const atBottom = innerHeight + scrollY >= document.documentElement.scrollHeight - 4;
+        target = atBottom ? null : sections.find(s => s.getBoundingClientRect().top > innerHeight * 0.45) || null;
+        guide.classList.toggle('up', !target);
+        label.textContent = target ? target.querySelector('h2').textContent : 'Back to top';
+        guide.querySelector('small').textContent = target ? 'Next up' : 'Thanks for visiting!';
+        guide.setAttribute('aria-label', target ? `Scroll to ${label.textContent}` : 'Scroll back to top');
+      };
+      let ticking = false;
+      addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); }
+      }, { passive: true });
+      addEventListener('resize', update);
+      guide.addEventListener('click', () => {
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        else scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      update();
+    })();
+  </script>
 </body>
 </html>
